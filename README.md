@@ -65,10 +65,4 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 
 ### `npm run build` fails to minify
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
-"# Lab7" 
-"# Lab8" 
-"# Lab8" 
-"# Lab8" 
-"# Lab8" 
-"# Lab10" 
+ 
