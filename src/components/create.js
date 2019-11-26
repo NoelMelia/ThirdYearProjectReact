@@ -1,5 +1,8 @@
 import React from 'react';
 import axios from 'axios';
+import Container from 'react-bootstrap/Container'
+import Column from 'react-bootstrap/Col'
+import Row from 'react-bootstrap/Row'
 
 class Create extends React.Component {
   constructor(props) {
@@ -34,12 +37,12 @@ class Create extends React.Component {
       + " ," + this.state.Poster);
     e.preventDefault();
 
-    const newMovie = {
+    const newComic = {
       title: this.state.Title,
       year: this.state.Year,
       poster: this.state.Poster
     }
-axios.post('http://localhost:4000/api/movies', newMovie)
+  axios.post('http://localhost:4000/api/comics', newComic)
       .then()
       .catch();
 
@@ -53,46 +56,51 @@ axios.post('http://localhost:4000/api/movies', newMovie)
 
   render() {
     return (
-      <div>
-        <h1>Hello from Create component</h1>
-        <form onSubmit={this.handleSubmit}>
-          <div className='form-group'>
-            <label>Movie Title</label>
-            <input
-              type='text'
-              className='form-control'
-              value={this.state.Title}
-              onChange={this.handleMovieTitleChange}
-            ></input>
-          </div>
-          <div className='form-group'>
-            <label>Movie Year</label>
-            <input
-              type='text'
-              className='form-control'
-              value={this.state.Year}
-              onChange={this.handleMovieYearChange}
-            ></input>
-          </div>
-          <div className='form-group'>
-            <label>Movie Poster Url</label>
-            <textarea
-              row='3'
-              className='form-control'
-              value={this.state.Poster}
-              onChange={this.handleMoviePosterChange}
-            ></textarea>
-          </div>
-          <div>
-            <input
-              type="submit"
-              value="Add Movie">
-            </input>
-          </div>
-        </form>
-      </div>
+      <Container>
+        <Row>
+          <Column>
+            <div>
+              <h1>Create New Comic</h1>
+              <form onSubmit={this.handleSubmit}>
+                <div className='form-group'>
+                  <label>Movie Title</label>
+                  <input
+                    type='text'
+                    className='form-control'
+                    value={this.state.Title}
+                    onChange={this.handleMovieTitleChange}
+                  ></input>
+                </div>
+                <div className='form-group'>
+                  <label>Movie Year</label>
+                  <input
+                    type='text'
+                    className='form-control'
+                    value={this.state.Year}
+                    onChange={this.handleMovieYearChange}
+                  ></input>
+                </div>
+                <div className='form-group'>
+                  <label>Movie Poster Url</label>
+                  <textarea
+                    row='3'
+                    className='form-control'
+                    value={this.state.Poster}
+                    onChange={this.handleMoviePosterChange}
+                  ></textarea>
+                </div>
+                <div>
+                  <input
+                    type="submit"
+                    value="Add New Comic">
+                  </input>
+                </div>
+              </form>
+            </div>
+          </Column>
+        </Row>
+      </Container>
     );
   }
 }
-
 export default Create;
