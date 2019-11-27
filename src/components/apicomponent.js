@@ -7,17 +7,18 @@ import Row from 'react-bootstrap/Row'
 export default class ApiComponent extends Component{
     constructor() {
         super();
+        //Holding details of variables so i can use them later and easier
         this.apiKey = '?apikey=62fd825f7cda72881097e65913c376c5';
         this.size = '/standard_fantastic';
         this.state = {
         series: []
         }
     }
-
+    //Getting the data
     componentDidMount() {
         this.getData();
     }
-
+    //Making the call to api
     async getData() {
     const response = await axios
         .get('http://gateway.marvel.com/v1/public/characters/1009165' + this.apiKey);
@@ -28,7 +29,7 @@ export default class ApiComponent extends Component{
         this.getSerieThumbnail(serie);
     });
     }
-
+    //Holding the details from the comics 
     async getSerieThumbnail(serie) {
     const response = await axios.get(serie.resourceURI + this.apiKey)
 
@@ -48,8 +49,9 @@ export default class ApiComponent extends Component{
             <Container>
                 <Row>
                     <Column>
-                        <h1>Comics Released from Marvel HeadQuaters</h1>
+                        <h1>Comics Released from Marvel HeadQuarters</h1>
                         <div>
+                            {/*Printing out the Information to the Screen and holding it in a container*/}
                             {this.state.series.map((serie, i) =>{
                                 return <div>
                                     <div>

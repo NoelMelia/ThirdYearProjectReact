@@ -9,12 +9,12 @@ import Update from './components/update';
 import Search from './components/search';
 import ApiComponent from './components/apicomponent';
 import Background from '../src/Images/marvel.jpg';
-
+//imports needed for this page
 
 
 class App extends React.Component {
-  
   render() {
+    {/* Created an image for the top of the Page */}
     var sectionStyle = {
       align: "center",
       width: "100%",
@@ -23,47 +23,47 @@ class App extends React.Component {
     };
 
     return (
-      
       <BrowserRouter >
-        <div className="App" >
-          <nav className="navbar navbar-expand-lg navbar-light bg-light navbar-nav li " >
+        <div className="App">
+          {/* Calling the image */}
+          <section style={ sectionStyle }></section>
+          {/* NavBar from bootstrap */}
+          <nav className="navbar navbar-expand-lg navbar-dark bg-dark ">
             <a className="navbar-brand" href="https://github.com/NoelMelia/ThirdYearProject"><b>NMT</b></a>
-            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" >
+            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+             aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
               <span className="navbar-toggler-icon"></span>
             </button>
-
-            <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
-              <ul className="navbar-nav ">
+            <div className="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul className="navbar-nav mr-auto">
                 <li className="nav-item active">
-                <Nav.Link href="/apicomponent" color='red'>New Comics</Nav.Link>
+                  <a className="nav-link" href="/">New Comics</a>
                 </li>
                 <li className="nav-item">
-                  <Nav.Link href="/create">Create</Nav.Link>
+                  <a className="nav-link" href="/create">Create</a>
                 </li>
                 <li className="nav-item">
-                  <Nav.Link href="/read">Read</Nav.Link>
+                  <a className="nav-link" href="/read">Read</a>
                 </li>
                 <li className="nav-item">
-                  <Nav.Link href="/search">Search Comic</Nav.Link>
+                  <a className="nav-link" href="/search">Search Comic</a>
                 </li>
               </ul>
-              
             </div>
           </nav>
           
+  
           {/* Switch between the Page on the Nav Bar */}
           <Switch>
-            <Route exact path="/read" component={Read} />
-            <Route path="/apicomponent" component={ApiComponent} />
+            <Route path="/read" component={Read} />
+            <Route exact path="/" component={ApiComponent} />
             <Route path="/create" component={Create} />
             <Route path="/update/:id" component={Update} />
             <Route path="/search" component={Search} />
-          </Switch>
-          
+          </Switch> 
         </div>
       </BrowserRouter>
     );
   }
 }
-
 export default App;

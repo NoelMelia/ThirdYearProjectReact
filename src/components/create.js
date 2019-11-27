@@ -7,7 +7,7 @@ import Row from 'react-bootstrap/Row'
 class Create extends React.Component {
   constructor(props) {
     super(props);
-
+    //Similar to update and creating object
     this.state = {
       Title: '',
       Year: '',
@@ -19,7 +19,7 @@ class Create extends React.Component {
     this.handleMovieYearChange = this.handleMovieYearChange.bind(this);
     this.handleMoviePosterChange = this.handleMoviePosterChange.bind(this);
   }
-
+  //Holding Details that have been entered by user
   handleMovieTitleChange(e) {
     this.setState({ Title: e.target.value });
   }
@@ -31,7 +31,7 @@ class Create extends React.Component {
   handleMoviePosterChange(e) {
     this.setState({ Poster: e.target.value });
   }
-
+  //When Button is pressed then the object is created and pushed up to the database
   handleSubmit(e) {
     alert(this.state.Title + " ," + this.state.Year
       + " ," + this.state.Poster);
@@ -42,10 +42,11 @@ class Create extends React.Component {
       year: this.state.Year,
       poster: this.state.Poster
     }
+    //Should i post or created object pushed to database
   axios.post('http://localhost:4000/api/comics', newComic)
       .then()
       .catch();
-
+      //Clearing the entry fields
       this.setState({
         Title: '',
         Year: '',

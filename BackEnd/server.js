@@ -23,8 +23,8 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
 
+//Creating a child of the parent
 const Schema = mongoose.Schema;
-
 const comicSchema = new Schema({
     title:String,
     year:String,
@@ -33,38 +33,14 @@ const comicSchema = new Schema({
 
 const ComicModel = mongoose.model('comic', comicSchema);
 
-
-app.get('/', (req, res) => res.send('Hello World!'))
-
-app.get('/whatever', (req, res) => {
-    res.send('whatever')
-})
-
-app.get('/name', (req, res) => {
-    console.log(req.query.lastname)
-    res.send('Welcome ' + req.query.firstname +
-        ' ' + req.query.lastname);
-})
-
-app.post('/name', (req, res) => {
-    console.log(req.body.lastname);
-    res.send('post recieved from '
-        + req.body.firstname + ' ' +
-        req.body.lastname)
-})
-
-app.get('/test', (req, res) => {
-    res.sendFile(path.join(__dirname + '/index.html'));
-})
-
+//Getting the comic for the user
 app.get('/api/comics', (req, res) => {
-
     ComicModel.find((error, data) =>{
         res.json({comics:data});
-    })
-    
+    })  
 })
 
+//Getting the name of comic for the user
 app.get('/api/comics/search/:name', (req, res)=>{
     console.log(req.params.name);
 
@@ -73,6 +49,7 @@ app.get('/api/comics/search/:name', (req, res)=>{
     })
 })
 
+//Finding the id for the user
 app.get('/api/comics/:id', (req, res)=>{
     console.log(req.params.id);
 
@@ -81,6 +58,7 @@ app.get('/api/comics/:id', (req, res)=>{
     })
 })
 
+//Putting the user to the edit page when the user clicks on edit button
 app.put('/api/comics/:id', (req,res)=>{
     console.log("Edit"+req.params.id);
 
@@ -92,6 +70,7 @@ app.put('/api/comics/:id', (req,res)=>{
     })
 })
 
+//Deleting the object by looking for the id
 app.delete('/api/comics/:id',(req,res)=>{
     console.log(req.params.id);
 
@@ -100,6 +79,7 @@ app.delete('/api/comics/:id',(req,res)=>{
         })
 })
 
+//Posting info to the terminal and creating the object with details
 app.post('/api/comics', (req,res)=>{
     console.log('Post request Successful');
     console.log(req.body.title);
@@ -113,10 +93,6 @@ app.post('/api/comics', (req,res)=>{
     });
 
     res.json('post recieved!');
-})
-app.get('/hello/:name', (req, res) => {
-    console.log(req.params.name);
-    res.send('Hello ' + req.params.name)
 })
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))

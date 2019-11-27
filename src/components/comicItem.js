@@ -12,6 +12,7 @@ class ComicItem extends React.Component{
     super();
     this.DeleteComic = this.DeleteComic.bind(this);
   }
+  //Deleting the object by using the id and finding it and also reloading the page
   DeleteComic(e){
     alert("Deleted");
     console.log("delete clicked");
@@ -32,10 +33,11 @@ class ComicItem extends React.Component{
                       <div >
                         <img  src={this.props.comic.poster} alt="Error Loading Image" width='200px'/>
                         <div >
-                          <h3 class="card-title">{this.props.comic.title}</h3>   
-                          <p class="card-text">Year Released: {this.props.comic.year}</p>
+                          <h3 className="card-title">{this.props.comic.title}</h3>   
+                          <p className="card-text">Year Released: {this.props.comic.year}</p>
                         </div>
-                        <Link to={"/edit/" + this.props.comic._id} className="btn btn-primary">Edit</Link>
+                        {/*Updating and deleting buttons*/ }
+                        <Link to={"/update/" + this.props.comic._id} className="btn btn-primary">Update</Link>
                         <Button variant="danger" onClick={this.DeleteComic}>Delete</Button>
                       </div>
                     </div>
