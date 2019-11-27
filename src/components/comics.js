@@ -5,7 +5,7 @@ class Comics extends React.Component{
 
     render(){
         return this.props.myComics.map((comic)=>{
-            //console.log({movie});
+            //Calling the data from the data 
             return <ComicItem key={comic._id} comic={comic} 
             ReloadDataMethod={this.props.ReloadDataMethod}></ComicItem>
         });

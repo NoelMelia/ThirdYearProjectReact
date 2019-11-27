@@ -39,7 +39,7 @@ class Search extends React.Component {
     }
 
     handleComic(e) {
-        this.setState({ g: e.target.value });
+        this.setState({ search: e.target.value });
         //console.log(g);
     }
     

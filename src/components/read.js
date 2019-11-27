@@ -8,10 +8,11 @@ class Read extends React.Component{
         super();
         this.ReloadDataMethod = this.ReloadDataMethod.bind(this);
     }
+    //Creating Object
     state = {
         comics: []
     };
-
+    //Getting the info from the API Database
     componentDidMount() {
         axios.get('http://localhost:4000/api/comics')
         .then((response)=>{
@@ -21,6 +22,7 @@ class Read extends React.Component{
             console.log(error);
         });
     }
+    //Reloading the page everytime after update
     ReloadDataMethod(){
         axios.get('http://localhost:4000/api/comics')
         .then((response)=>{
@@ -32,12 +34,10 @@ class Read extends React.Component{
     }
     render(){
         return(
-            
             <div>
                 <h1>Comic Books</h1>
                 <Comics myComics={this.state.comics} ReloadDataMethod={this.ReloadDataMethod}></Comics>
-            </div>
-            
+            </div> 
         );
     }
 }
