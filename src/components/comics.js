@@ -8,6 +8,7 @@ class Comics extends React.Component{
             //Calling the data from the data 
             return <ComicItem key={comic._id} comic={comic} 
             ReloadDataMethod={this.props.ReloadDataMethod}></ComicItem>
+            
         });
     }
 }
