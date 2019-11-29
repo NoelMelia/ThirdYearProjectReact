@@ -9,6 +9,7 @@ const mongoose = require('mongoose');
 const mongodb = 'mongodb+srv://admin:admin@cluster0-6fokd.mongodb.net/test?retryWrites=true&w=majority';
 mongoose.connect(mongodb,{useNewUrlParser:true});
 app.use(cors());
+//Letting the app use CRUD
 app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
