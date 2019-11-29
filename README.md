@@ -1,4 +1,10 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Comic Book React Project
+
+Name: Noel Melia
+
+Id: G00237491
+
+See Wiki for User Instructions
 
 ## Available Scripts
 
