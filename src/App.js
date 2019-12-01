@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
 import { Switch, Route, BrowserRouter } from 'react-router-dom'
 import Create from './components/create';
 import Read from './components/read';
@@ -28,30 +29,16 @@ class App extends React.Component {
           {/* Calling the image */}
           <section style={ sectionStyle }></section>
           {/* NavBar from bootstrap */}
-          <nav className="navbar navbar-expand-lg navbar-dark bg-dark ">
-            <a className="navbar-brand" href="https://github.com/NoelMelia/ThirdYearProject"><b>NMT</b></a>
-            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-             aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
-              <span className="navbar-toggler-icon"></span>
-            </button>
-            <div className="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul className="navbar-nav mr-auto">
-                <li className="nav-item active">
-                  <a className="nav-link" href="/">New Comics</a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="/create">Create</a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="/read">Read</a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="/search">Search Comic</a>
-                </li>
-              </ul>
-            </div>
-          </nav>
           
+          <Navbar bg="info" variant="dark">
+            <Navbar.Brand alt="NMT" href="https://github.com/NoelMelia/ThirdYearProject">NMT</Navbar.Brand>
+            <Nav className="mr-auto">
+              <Nav.Link href="/">New Comics</Nav.Link>
+              <Nav.Link href="/create">Create Comic</Nav.Link>
+              <Nav.Link href="/read">View Comics</Nav.Link>
+              <Nav.Link href="/search">Search Comics</Nav.Link>
+            </Nav>
+          </Navbar>
   
           {/* Switch between the Page on the Nav Bar */}
           <Switch>
